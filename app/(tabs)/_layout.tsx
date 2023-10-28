@@ -1,53 +1,51 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable, useColorScheme } from 'react-native';
-
-import Colors from '../../constants/Colors';
+import { Tabs } from 'expo-router';
+import Constants from '@/constants/Constants';
+import CustomHeader from '@/components/CustomHeader';
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
+function TabBarIcon(props: { name: React.ComponentProps<typeof FontAwesome>['name']; color: string }) {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: Constants.colorPrimary,
       }}>
       <Tabs.Screen
-        name="index"
+        name='home'
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: '我的',
+          tabBarIcon: ({ color }) => <TabBarIcon name='home' color={color} />,
+          header: () => <CustomHeader />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name='discovery'
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: '发现',
+          tabBarIcon: ({ color }) => <TabBarIcon name='th-large' color={color} />,
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Tabs.Screen
+        name='message'
+        options={{
+          title: '消息',
+          tabBarIcon: ({ color }) => <TabBarIcon name='comments' color={color} />,
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Tabs.Screen
+        name='mine'
+        options={{
+          title: '我的',
+          tabBarIcon: ({ color }) => <TabBarIcon name='user' color={color} />,
+          headerTitleAlign: 'center',
         }}
       />
     </Tabs>
