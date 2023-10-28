@@ -35,3 +35,6 @@ npx expo install axios
   "jsxBracketSameLine": true // 将JSX尖括号放在同一行
 }
 ```
+
+### 参考
+- [vector-icons](https://icons.expo.fyi/)
