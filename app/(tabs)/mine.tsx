@@ -1,7 +1,13 @@
 import Constants from '@/constants/Constants';
 import { AntDesign } from '@expo/vector-icons';
 import { Avatar } from '@rneui/base';
-import { StyleSheet, View, Text, StatusBar, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  StatusBar,
+  TouchableOpacity,
+} from 'react-native';
 import { router } from 'expo-router';
 
 export default function MineScreen() {
@@ -17,7 +23,11 @@ export default function MineScreen() {
       <View style={styles.header}>
         <View style={styles.titleLine}>
           <View style={styles.title}>
-            <Avatar size={44} rounded source={require('@/assets/images/logo.png')} />
+            <Avatar
+              size={44}
+              rounded
+              source={require('@/assets/images/logo.png')}
+            />
             <Text style={styles.titleText}>15999606012</Text>
           </View>
           <TouchableOpacity onPress={toSettingPage}>
@@ -51,42 +61,66 @@ export default function MineScreen() {
             <AntDesign name='hearto' size={20} color={Constants.colorPrimary} />
             <Text style={styles.menuItemText}>我的收藏</Text>
           </View>
-          <AntDesign name='arrowright' size={20} color={Constants.colorTextGrey} />
+          <AntDesign
+            name='arrowright'
+            size={20}
+            color={Constants.colorTextGrey}
+          />
         </View>
         <View style={styles.menuItem}>
           <View style={styles.menuItemLeft}>
             <AntDesign name='hearto' size={20} color={Constants.colorPrimary} />
             <Text style={styles.menuItemText}>意见反馈</Text>
           </View>
-          <AntDesign name='arrowright' size={20} color={Constants.colorTextGrey} />
+          <AntDesign
+            name='arrowright'
+            size={20}
+            color={Constants.colorTextGrey}
+          />
         </View>
         <View style={styles.menuItem}>
           <View style={styles.menuItemLeft}>
             <AntDesign name='hearto' size={20} color={Constants.colorPrimary} />
             <Text style={styles.menuItemText}>帮助中心</Text>
           </View>
-          <AntDesign name='arrowright' size={20} color={Constants.colorTextGrey} />
+          <AntDesign
+            name='arrowright'
+            size={20}
+            color={Constants.colorTextGrey}
+          />
         </View>
         <View style={styles.menuItem}>
           <View style={styles.menuItemLeft}>
             <AntDesign name='hearto' size={20} color={Constants.colorPrimary} />
             <Text style={styles.menuItemText}>商务合作</Text>
           </View>
-          <AntDesign name='arrowright' size={20} color={Constants.colorTextGrey} />
+          <AntDesign
+            name='arrowright'
+            size={20}
+            color={Constants.colorTextGrey}
+          />
         </View>
         <View style={styles.menuItem}>
           <View style={styles.menuItemLeft}>
             <AntDesign name='hearto' size={20} color={Constants.colorPrimary} />
             <Text style={styles.menuItemText}>用户协议</Text>
           </View>
-          <AntDesign name='arrowright' size={20} color={Constants.colorTextGrey} />
+          <AntDesign
+            name='arrowright'
+            size={20}
+            color={Constants.colorTextGrey}
+          />
         </View>
         <View style={[styles.menuItem, styles.menuItemLast]}>
           <View style={styles.menuItemLeft}>
             <AntDesign name='hearto' size={20} color={Constants.colorPrimary} />
             <Text style={styles.menuItemText}>关于我们</Text>
           </View>
-          <AntDesign name='arrowright' size={20} color={Constants.colorTextGrey} />
+          <AntDesign
+            name='arrowright'
+            size={20}
+            color={Constants.colorTextGrey}
+          />
         </View>
       </View>
     </>
