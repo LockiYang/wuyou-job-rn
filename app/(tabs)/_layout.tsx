@@ -19,7 +19,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name='home'
         options={{
-          title: '我的',
+          title: '首页',
           tabBarIcon: ({ color }) => <TabBarIcon name='home' color={color} />,
           header: () => <CustomHeader />,
         }}
@@ -45,7 +45,7 @@ export default function TabLayout() {
         options={{
           title: '我的',
           tabBarIcon: ({ color }) => <TabBarIcon name='user' color={color} />,
-          headerTitleAlign: 'center',
+          headerShown: false,
         }}
       />
     </Tabs>

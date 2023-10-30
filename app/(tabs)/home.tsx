@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, SafeAreaView, Platform } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, Platform, StatusBar } from 'react-native';
 
 export default function HomeScreen() {
   return (
@@ -11,7 +11,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    top: Platform.OS === 'ios' ? 60 : 0,
+    top: Platform.OS === 'web' ? 0 : 60,
     backgroundColor: '#ffffff',
   },
   title: {
