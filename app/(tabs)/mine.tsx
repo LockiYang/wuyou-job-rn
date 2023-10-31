@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { router } from 'expo-router';
+import * as WebBrowser from 'expo-web-browser';
 
 export default function MineScreen() {
   // 设置状态栏样式为白色
@@ -16,6 +17,32 @@ export default function MineScreen() {
 
   const toSettingPage = () => {
     router.push('/mine/setting');
+  };
+
+  const toAboutUsPage = () => {
+    router.push('/mine/aboutus');
+  };
+
+  const toFeedbackPage = () => {
+    router.push('/mine/feedback');
+  };
+
+  const toBussinessPage = () => {
+    router.push('/mine/bussiness');
+  };
+
+  const toUserProtocal = async () => {
+    let result = await WebBrowser.openBrowserAsync('https://www.baidu.com');
+    if (result.type === 'cancel') {
+      console.log('用户取消了操作');
+    }
+  };
+
+  const toHelpCenter = async () => {
+    let result = await WebBrowser.openBrowserAsync('https://www.baidu.com');
+    if (result.type === 'cancel') {
+      console.log('用户取消了操作');
+    }
   };
 
   return (
@@ -67,61 +94,92 @@ export default function MineScreen() {
             color={Constants.colorTextGrey}
           />
         </View>
-        <View style={styles.menuItem}>
-          <View style={styles.menuItemLeft}>
-            <AntDesign name='hearto' size={20} color={Constants.colorPrimary} />
-            <Text style={styles.menuItemText}>意见反馈</Text>
+        <TouchableOpacity onPress={toFeedbackPage}>
+          <View style={styles.menuItem}>
+            <View style={styles.menuItemLeft}>
+              <AntDesign
+                name='hearto'
+                size={20}
+                color={Constants.colorPrimary}
+              />
+              <Text style={styles.menuItemText}>意见反馈</Text>
+            </View>
+            <AntDesign
+              name='arrowright'
+              size={20}
+              color={Constants.colorTextGrey}
+            />
           </View>
-          <AntDesign
-            name='arrowright'
-            size={20}
-            color={Constants.colorTextGrey}
-          />
-        </View>
-        <View style={styles.menuItem}>
-          <View style={styles.menuItemLeft}>
-            <AntDesign name='hearto' size={20} color={Constants.colorPrimary} />
-            <Text style={styles.menuItemText}>帮助中心</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={toHelpCenter}>
+          <View style={styles.menuItem}>
+            <View style={styles.menuItemLeft}>
+              <AntDesign
+                name='hearto'
+                size={20}
+                color={Constants.colorPrimary}
+              />
+              <Text style={styles.menuItemText}>帮助中心</Text>
+            </View>
+            <AntDesign
+              name='arrowright'
+              size={20}
+              color={Constants.colorTextGrey}
+            />
           </View>
-          <AntDesign
-            name='arrowright'
-            size={20}
-            color={Constants.colorTextGrey}
-          />
-        </View>
-        <View style={styles.menuItem}>
-          <View style={styles.menuItemLeft}>
-            <AntDesign name='hearto' size={20} color={Constants.colorPrimary} />
-            <Text style={styles.menuItemText}>商务合作</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={toBussinessPage}>
+          <View style={styles.menuItem}>
+            <View style={styles.menuItemLeft}>
+              <AntDesign
+                name='hearto'
+                size={20}
+                color={Constants.colorPrimary}
+              />
+              <Text style={styles.menuItemText}>商务合作</Text>
+            </View>
+            <AntDesign
+              name='arrowright'
+              size={20}
+              color={Constants.colorTextGrey}
+            />
           </View>
-          <AntDesign
-            name='arrowright'
-            size={20}
-            color={Constants.colorTextGrey}
-          />
-        </View>
-        <View style={styles.menuItem}>
-          <View style={styles.menuItemLeft}>
-            <AntDesign name='hearto' size={20} color={Constants.colorPrimary} />
-            <Text style={styles.menuItemText}>用户协议</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={toUserProtocal}>
+          <View style={styles.menuItem}>
+            <View style={styles.menuItemLeft}>
+              <AntDesign
+                name='hearto'
+                size={20}
+                color={Constants.colorPrimary}
+              />
+              <Text style={styles.menuItemText}>用户协议</Text>
+            </View>
+            <AntDesign
+              name='arrowright'
+              size={20}
+              color={Constants.colorTextGrey}
+            />
           </View>
-          <AntDesign
-            name='arrowright'
-            size={20}
-            color={Constants.colorTextGrey}
-          />
-        </View>
-        <View style={[styles.menuItem, styles.menuItemLast]}>
-          <View style={styles.menuItemLeft}>
-            <AntDesign name='hearto' size={20} color={Constants.colorPrimary} />
-            <Text style={styles.menuItemText}>关于我们</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={toAboutUsPage}>
+          <View style={[styles.menuItem, styles.menuItemLast]}>
+            <View style={styles.menuItemLeft}>
+              <AntDesign
+                name='hearto'
+                size={20}
+                color={Constants.colorPrimary}
+              />
+              <Text style={styles.menuItemText}>关于我们</Text>
+            </View>
+            <AntDesign
+              name='arrowright'
+              size={20}
+              color={Constants.colorTextGrey}
+            />
           </View>
-          <AntDesign
-            name='arrowright'
-            size={20}
-            color={Constants.colorTextGrey}
-          />
-        </View>
+        </TouchableOpacity>
       </View>
     </>
   );

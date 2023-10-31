@@ -20,11 +20,6 @@ npx expo install axios
 "tsconfigPaths": true
 ```
 
-使用[React Native Elements](https://reactnativeelements.com/docs)
-```
-npm install @rneui/themed @rneui/base
-```
-
 .prettierrc 配置
 
 ```
@@ -43,5 +38,12 @@ npm install @rneui/themed @rneui/base
 }
 ```
 
+依赖
+
+- [react-native-picker-select](https://github.com/lawnstarter/react-native-picker-select)
+- [React Native Elements](https://reactnativeelements.com/docs)
+- [tamagui](https://tamagui.dev/docs/intro/introduction)
+
 ### 参考
+
 - [vector-icons](https://icons.expo.fyi/)

@@ -4,48 +4,54 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import Constants from '@/constants/Constants';
-import { Switch } from '@rneui/base';
-import { router } from 'expo-router';
+import Toast from 'react-native-root-toast';
 
-const SettingScreen = () => {
+const AboutUsScreen = () => {
   const navigation = useNavigation();
-
-  const [checked, setChecked] = useState(false);
-
-  const toggleSwitch = () => {
-    setChecked(!checked);
-  };
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTitle: '设置',
+      headerTitle: '关于我们',
       headerTitleAlign: 'center',
     });
   });
 
-  const toSettingPage = () => {
-    router.push('/mine/logoff');
+  const toUpdate = () => {
+    console.info('toUpdate');
+    Toast.show('已经是最新版本了', {
+      duration: Toast.durations.LONG,
+      position: Toast.positions.CENTER,
+      shadow: true,
+      animation: true,
+      hideOnPress: true,
+    });
   };
 
   return (
     <View style={styles.menuBox}>
-      <TouchableOpacity onPress={toSettingPage}>
+      <TouchableOpacity onPress={toUpdate}>
         <View style={styles.menuItem}>
-          <Text style={styles.menuItemText}>账号与安全</Text>
-          <AntDesign
-            name='arrowright'
-            size={20}
-            color={Constants.colorTextGrey}
-          />
+          <Text style={styles.menuItemText}>版本信息</Text>
+          <View style={styles.menuItemRight}>
+            <Text style={styles.menuItemRightText}>1.2.0</Text>
+            <AntDesign
+              name='arrowright'
+              size={20}
+              color={Constants.colorTextGrey}
+            />
+          </View>
         </View>
       </TouchableOpacity>
-
       <View style={styles.menuItem}>
-        <Text style={styles.menuItemText}>个性化推荐</Text>
-        <Switch value={checked} onValueChange={(value) => setChecked(value)} />
+        <Text style={styles.menuItemText}>用户协议</Text>
+        <AntDesign
+          name='arrowright'
+          size={20}
+          color={Constants.colorTextGrey}
+        />
       </View>
       <View style={[styles.menuItem, styles.menuItemLast]}>
-        <Text style={styles.menuItemText}>退出登录</Text>
+        <Text style={styles.menuItemText}>隐私政策</Text>
         <AntDesign
           name='arrowright'
           size={20}
@@ -77,6 +83,14 @@ const styles = StyleSheet.create({
   menuItemText: {
     fontSize: 16,
   },
+  menuItemRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  menuItemRightText: {
+    marginRight: 5,
+    color: Constants.colorTextGrey,
+  },
 });
 
-export default SettingScreen;
+export default AboutUsScreen;
